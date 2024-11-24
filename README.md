@@ -3,9 +3,7 @@
 </p>
 
 <h1>Azure Sentinel (SIEM) Tutorial with Map of Live Cyber Attacks</h1>
-This tutorial outlines the implementation of a SIEM within Azure Virtual Machines.<br />
-
-
+This tutorial outlines the implementation of an SIEM within Azure Virtual Machines. The environment utilizes Microsoft Azure Sentinel, Remote Desktop, and Windows 10. <br />
 
 
 <h2>Environments and Technologies Used</h2>
@@ -21,7 +19,7 @@ This tutorial outlines the implementation of a SIEM within Azure Virtual Machine
 
 - Setup Resources in Azure
 - Create Log Analytics Workspace
-- Enable gathering VM logs in Security Center
+- Enable gathering VM logs in the Security Center
 - Setup Azure Sentinel
 - Create custom fields/extract fields from raw custom log data
 - Setup map in sentinel with Latitude and Longitude (or country)
@@ -112,7 +110,7 @@ Refresh the page and install Data Collections
 <img src="https://i.imgur.com/P7KTU79.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Go to environment settings and open Azure Subscription and click on the honeypot
+Go to environment settings, open Azure Subscription, and click on the honeypot
 </p>
 <br />
 
@@ -120,7 +118,7 @@ Go to environment settings and open Azure Subscription and click on the honeypot
 <img src="https://i.imgur.com/HD3YAOY.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Click on Data Collection and select All Events and save
+Click on Data Collection, select All Events, and save
 </p>
 <br />
 
@@ -128,7 +126,7 @@ Click on Data Collection and select All Events and save
 <img src="https://i.imgur.com/QWGI6uI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Go back to log analytics workspace to connect it to the VM
+Go back to the log analytics workspace to connect it to the VM
 </p>
 <br />
 
@@ -144,7 +142,7 @@ Open the log analytics workspace and click on virtual machines on the left
 <img src="https://i.imgur.com/0KVE0oD.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Click on the VM created in the beginning
+Click on the VM created at the beginning
 </p>
 <br />
 
@@ -176,7 +174,7 @@ Choose the honeypot
 <img src="https://i.imgur.com/NLoe1f6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Go back to main page on Azure and click on the VM
+Go back to the main page on Azure and click on the VM
 </p>
 <br />
 
@@ -192,7 +190,7 @@ Copy the public IP Address
 <img src="https://i.imgur.com/DVdXBtH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Open remote desktop and log into the machine with credentials that were created int he beginning. Purposefully put in the wrong password on the first try.
+Open the remote desktop and log into the machine with the credentials that were created in the beginning. Purposefully put in the wrong password on the first try.
 </p>
 <br />
 
@@ -200,7 +198,7 @@ Open remote desktop and log into the machine with credentials that were created 
 <img src="https://i.imgur.com/OxymI2u.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Initial password input was wrong. This will be logged for us to see.
+The initial password input was wrong. This will be logged for us to see.
 </p>
 <br />
 
@@ -224,7 +222,7 @@ Go to Windows Logs and Security on the left
 <img src="https://i.imgur.com/u1w2Jau.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-vHere we can see our login failure
+Here we can see our login failure
 </p>
 <br />
 
@@ -232,7 +230,7 @@ vHere we can see our login failure
 <img src="https://i.imgur.com/93t09Ln.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-You can double click to see the details of that log
+You can double-click to see the details of that log
 </p>
 <br />
 
@@ -240,7 +238,7 @@ You can double click to see the details of that log
 <img src="https://i.imgur.com/tfLdMxA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Now try to login again but this time put in the wrong username and password.
+Now, try to log in again, but this time, put in the wrong username and password.
 </p>
 <br />
 
@@ -248,7 +246,7 @@ Now try to login again but this time put in the wrong username and password.
 <img src="https://i.imgur.com/mgazUXV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Login attempt with wrong username
+Login attempt with the wrong username
 </p>
 <br />
 
@@ -256,7 +254,7 @@ Login attempt with wrong username
 <img src="https://i.imgur.com/1rFWLKp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Now an IP address shows from the attempted login.
+Now, an IP address shows from the attempted login.
 </p>
 <br />
 
@@ -280,7 +278,7 @@ Click on Windows Defender Firewall properties
 <img src="https://i.imgur.com/otU6e00.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Ping the VM's IP Address and notice that echo requests are allowed and we are getting return messages
+Ping the VM's IP Address and notice that echo requests are allowed, and we are getting return messages
 </p>
 <br />
 
@@ -288,7 +286,7 @@ Ping the VM's IP Address and notice that echo requests are allowed and we are ge
 <img src="https://i.imgur.com/7NnMtd8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Turn off the Domain, Public and Private firewalls and click apply
+Turn off the Domain, Public, and Private firewalls and click apply
 </p>
 <br />
 
@@ -312,7 +310,7 @@ Make an account on ipgeolocation.io and copy and paste your API key into the scr
 <img src="https://i.imgur.com/ziPaknT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-The script is a loop that runs perpetually and looks through the event viewer and security log and grabs the IP addresses of failed logins and geo locates them and creates a new log file
+The script is a loop that runs perpetually and looks through the event viewer and security log, grabs the IP addresses of failed logins and geo locates them, and creates a new log file
 </p>
 <br />
 
@@ -320,7 +318,7 @@ The script is a loop that runs perpetually and looks through the event viewer an
 <img src="https://i.imgur.com/DMRWJ6d.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-The file will be created in the ProgramData file that you will have to access manually.
+The file will be created in the ProgramData file, which you must access manually.
 </p>
 <br />
 
@@ -328,7 +326,7 @@ The file will be created in the ProgramData file that you will have to access ma
 <img src="https://i.imgur.com/ZdmWUIF.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Run the script to see the failed logon file being created from the failed attempts earlier
+Run the script to see the failed login file being created from the failed attempts earlier
 </p>
 <br />
 
@@ -360,7 +358,7 @@ Copy and paste the logs within the VM file
 <img src="https://i.imgur.com/t12IHCU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Create a text file on your computer and paste the logs and save it on your desktop to upload to the custom logs on Azure
+Create a text file on your computer, paste the logs, and save it on your desktop to upload to the custom logs on Azure
 </p>
 <br />
 
@@ -376,7 +374,7 @@ Upload the custom log
 <img src="https://i.imgur.com/2HhzEri.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Hit next and it should look like this
+Hit next, and it should look like this
 </p>
 <br />
 
@@ -408,7 +406,7 @@ Head over to Log analytics workspaces and to the honeypot logs on the bottom lef
 <img src="https://i.imgur.com/nEkDEaf.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Right click and click extract fields from.
+Right-click and click extract fields from.
 </p>
 <br />
 
@@ -432,7 +430,7 @@ Check to see if the extraction is properly trained and save
 <img src="https://i.imgur.com/HI4vmD3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Repeat steps for logitude and modify incorrect data to train the algorithm
+Repeat steps for longitude and modify incorrect data to train the algorithm
 </p>
 <br />
 
@@ -440,7 +438,7 @@ Repeat steps for logitude and modify incorrect data to train the algorithm
 <img src="https://i.imgur.com/FNxTrDB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Repeat steps for destination host
+Repeat steps for the destination host
 </p>
 <br />
 
@@ -448,7 +446,7 @@ Repeat steps for destination host
 <img src="https://i.imgur.com/yXW4gPz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Repeat steps for username
+Repeat the steps for the username
 </p>
 <br />
 
@@ -480,7 +478,7 @@ Repeat steps for Country
 <img src="https://i.imgur.com/UHKauOy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Repeat steps for label
+Repeat the steps for the label
 </p>
 <br />
 
@@ -488,7 +486,7 @@ Repeat steps for label
 <img src="https://i.imgur.com/geBoyGm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Finally finish up with timestamp
+Finally, finish up with the timestamp
 </p>
 <br />
 
@@ -496,7 +494,7 @@ Finally finish up with timestamp
 <img src="https://i.imgur.com/XFfPYzw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Run the query again and notice the created custom fields. On subsequent logs, they will be properly parsed out
+Run the query again and notice the custom fields that have been created. On subsequent logs, they will be properly parsed out
 </p>
 <br />
 
@@ -560,7 +558,7 @@ Set map settings and labels
 <img src="https://i.imgur.com/X9znNU5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Set additional map setting and labels. Now observe as you track the hackers from around the world!
+Set additional map settings and labels. Now, you can observe as you track the hackers worldwide!
 </p>
 <br />
 
@@ -568,7 +566,7 @@ Set additional map setting and labels. Now observe as you track the hackers from
 <img src="https://i.imgur.com/dwrk3Lg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Roughly 30 minutes after lab has been completed
+Roughly 30 minutes after the lab has been completed
 </p>
 <br />
 
@@ -576,7 +574,7 @@ Roughly 30 minutes after lab has been completed
 <img src="https://i.imgur.com/1hI68xX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Roughly 7 hours after lab was complete
+Roughly 7 hours after the lab was complete
 </p>
 <br />
 
